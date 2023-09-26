@@ -1,3 +1,7 @@
 from django.contrib import admin
+from customers.models import Customer
 
-# Register your models here.
+
+@admin.register(Customer)
+class RobotAdmin(admin.ModelAdmin):
+    list_display = ("pk", "email")
