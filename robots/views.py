@@ -14,9 +14,9 @@ class AddRobotView(View):
             deserializer.save()
         except DeserializationError as e:
             print(e.__repr__())
-            return HttpResponse(e, status=403)
+            return HttpResponse(e, status=400)
         except ValidationError as e:
             print(e.__repr__())
-            return HttpResponse(e, status=403)
+            return HttpResponse(e, status=400)
 
-        return HttpResponse(status=200)
+        return HttpResponse(status=201)
